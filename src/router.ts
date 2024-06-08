@@ -10,4 +10,7 @@ router.get('/', (request: Request, response: Response) => {
 
 router.post('/usuarios', createUserController.handle);
 
+//atualizar a data do Plantão
+router.patch('/usuarios/date', updateController.handle)
+
 export default router;

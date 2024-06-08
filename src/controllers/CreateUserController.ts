@@ -5,14 +5,14 @@ class CreateUserController {
     async handle(request: Request, response: Response): Promise<Response> {
         const createUserService = new CreateUserService();
         
-        const { nome, email } = request.body;
+        const { nome, shiftDate } = request.body;
 
-        if (!nome || !email) {
+        if (!nome || !shiftDate) {
             return response.status(400).json({ message: "Preencha todos os campos" });
         }
 
         try {
-            const user = await createUserService.execute({ nome, email });
+            const user = await createUserService.execute({ nome, shiftDate });
             return response.status(201).json(user);
         } catch (err) {
             return response.status(400).json({ error: err.message });
@@ -21,3 +21,7 @@ class CreateUserController {
 }
 
 export { CreateUserController };
+
+//Atualizar a data do Plantão
+
+//Excluir usuário
