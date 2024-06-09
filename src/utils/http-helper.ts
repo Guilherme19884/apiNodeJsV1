@@ -6,3 +6,17 @@ export const ok = async (data:any): Promise< HttpResponse > => {
         body: data
     }
 }
+
+export const created = async (): Promise < HttpResponse >=> {
+    return {
+        statusCode: 201,
+        body: {message: "sucesful"}
+    }
+}
+
+export const noContent = async (): Promise < HttpResponse >=> {
+    return {
+        statusCode: 204,
+        body: null
+    }
+}
