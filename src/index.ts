@@ -2,12 +2,20 @@ import express from "express";
 import "reflect-metadata";
 import { AppDataSource } from "./data/data-source";
 import router from "./router";
+import mysql from "mysql2"
 
 // Inicializa o AppDataSource
 AppDataSource.initialize()
     .then(() => {
         console.log("Data Source has been initialized!");
 
+        const conection = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "123456",
+            database: "plantao"
+
+        })
         const server = express();
 
         // Middleware para parsear JSON

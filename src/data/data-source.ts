@@ -1,20 +1,24 @@
+import "reflect-metadata";
 import { DataSource } from "typeorm";
-import { User } from "../entity/User"; // Ajuste o caminho conforme necessário
+import { User } from "../entities/User";
+import { TableUsers1718486463874 } from "../../1718486463874-TableUsers";
 
 export const AppDataSource = new DataSource({
-    type: "sqlite",
-    database: "./database.sqlite", // Caminho para o arquivo do banco de dados SQLite
-    synchronize: true, // Pode ser true para desenvolvimento, false para produção
+    type: "mysql",
+    host: "localhost",
+    port: 3306,
+    username: "root",
+    password: "123456",
+    database: "plantao",
+    entities: ["src/entity/*.ts"],
     logging: true,
-    entities: [User],
-    migrations: ["src/migration/**/*.ts"], // Garanta que o caminho das migrações está correto
-    subscribers: [],
-});
+    synchronize: true,
+    migrations: [TableUsers1718486463874]
+})
 
+// Initialize the database connection
 AppDataSource.initialize()
     .then(() => {
-        console.log("Data Source has been initialized!");
+        console.log("Data Source has been initialized!")
     })
-    .catch((err) => {
-        console.error("Error during Data Source initialization:", err);
-    });
+    .catch((error) => console.log("Error during Data Source initialization:", error))

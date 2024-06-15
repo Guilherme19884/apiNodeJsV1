@@ -1,4 +1,4 @@
-import { HttpResponse } from "../entity/http-response-entity"
+import { HttpResponse } from "../entities/http-response-entity"
 
 export const ok = async (data:any): Promise< HttpResponse > => {
     return {
@@ -27,3 +27,5 @@ export const badRequest = async(): Promise< HttpResponse > => {
         body: null
     }
 }
+
+export { HttpResponse }
