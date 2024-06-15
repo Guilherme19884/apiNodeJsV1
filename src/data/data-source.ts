@@ -10,7 +10,7 @@ export const AppDataSource = new DataSource({
     username: "root",
     password: "123456",
     database: "plantao",
-    entities: ["src/entity/*.ts"],
+    entities: ["src/entities/*.ts"],
     logging: true,
     synchronize: true,
     migrations: [TableUsers1718486463874]

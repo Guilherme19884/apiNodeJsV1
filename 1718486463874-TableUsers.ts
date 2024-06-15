@@ -5,10 +5,10 @@ export class TableUsers1718486463874 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "users",
+                name: "User",
                 columns: [
                     {
-                        name: "re",
+                        name: "id",
                         type: "int",
                         isPrimary: true,
                         isGenerated: false
