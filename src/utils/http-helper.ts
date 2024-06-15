@@ -28,4 +28,11 @@ export const badRequest = async(): Promise< HttpResponse > => {
     }
 }
 
+export const serverError = async(): Promise< HttpResponse > => {
+    return {
+        statusCode: 500,
+        body: null
+    }
+}
+
 export { HttpResponse }

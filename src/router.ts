@@ -8,7 +8,8 @@ router.get('/', (request: Request, response: Response) => {
 });
 
 router.get('/usuarios', UserController.getUsers)
-router.post('/usuarios', UserController.createUser);
+router.post('/usuarios', UserController.createUser)
+router.get('/usuarios/:id', UserController.getOneUser)
 
 //atualizar a data do Plantão
 //router.patch('/usuarios/date', updateController.handle)

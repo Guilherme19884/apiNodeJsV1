@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { createUserService, getUsersService } from '../service/UserService';
+import { createUserService, getOneUserService, getUsersService } from '../service/UserService';
 import * as HttpResponse from '../utils/http-helper';
 
 
@@ -20,8 +20,14 @@ export const createUser = async (request: Request, response: Response) => {
 // Listar usuários
 export const getUsers = async (request: Request, response: Response): Promise<Response> => {
     const httpResponse = await getUsersService();
-    return response.status(httpResponse.statusCode).json(httpResponse.body);
+    return response.status(httpResponse.statusCode).json(httpResponse.body)
 }
 
+// Listar Único Usuário por Id
+export const getOneUser = async (request: Request, response: Response): Promise<Response> => {
+    const userId = Number(request.params.id) // Assume que o ID está sendo passado como parâmetro na URL
+    const httpResponse = await getOneUserService(userId)
 
+    return response.status(httpResponse.statusCode).json(httpResponse.body)
+}
 

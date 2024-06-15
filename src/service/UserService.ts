@@ -32,3 +32,18 @@ export const getUsersService = async (): Promise<IHttpResponse> => {
         return HttpResponse.noContent();
     }
 };
+
+export const getOneUserService = async (id: number): Promise<any> => {
+    try {
+        const user = await UserRepository.findOneById(id);
+
+        if (user) {
+            return HttpResponse.ok(user); // Retorna o usuário encontrado
+        } else {
+            return HttpResponse.noContent(); // Retorna 204 No Content se não encontrar o usuário
+        }
+    } catch (error) {
+        console.error("Error fetching user:", error);
+        return HttpResponse.serverError(); // Retorna erro 500 em caso de falha
+    }
+}
