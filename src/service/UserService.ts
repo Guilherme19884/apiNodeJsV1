@@ -47,3 +47,18 @@ export const getOneUserService = async (id: number): Promise<any> => {
         return HttpResponse.serverError(); // Retorna erro 500 em caso de falha
     }
 }
+
+export const deleteUserService = async (id: number): Promise<any> => {
+    try {
+        const userDeleted = await UserRepository.delete(id) 
+
+        if (userDeleted){
+            return HttpResponse.ok({message: "Deleted!"})
+        }else{
+            return HttpResponse.badRequest()
+        }
+    } catch (error) {
+        console.error("Error fetiching user:", error)
+        return HttpResponse.serverError()
+    }
+}

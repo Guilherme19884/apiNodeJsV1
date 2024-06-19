@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { createUserService, getOneUserService, getUsersService } from '../service/UserService';
+import { createUserService, deleteUserService, getOneUserService, getUsersService } from '../service/UserService';
 import * as HttpResponse from '../utils/http-helper';
 
 
@@ -31,3 +31,11 @@ export const getOneUser = async (request: Request, response: Response): Promise<
     return response.status(httpResponse.statusCode).json(httpResponse.body)
 }
 
+// Deletar usuário pelo id
+export const deleteUser = async(request: Request, response: Response): Promise<Response> =>{
+    const userId = Number(request.params.id)
+    const httpResponse = await deleteUserService(userId)
+
+    return response.json({Usuario :"Deletado com sucesso"})
+    console.log('Usuário deletado com sucesso!')
+}
