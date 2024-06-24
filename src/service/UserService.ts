@@ -71,5 +71,6 @@ export const updateUserService = async (id: number, user: Partial<User>): Promis
         return HttpResponse.badRequest()
     }
 
-    const response = await HttpResponse.ok(User)
+    const response = await HttpResponse.ok(data)
+    return { statusCode: 200, body: response }
 }

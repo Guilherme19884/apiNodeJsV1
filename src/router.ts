@@ -13,7 +13,5 @@ router.get('/usuarios/:id', UserController.getOneUser)
 router.delete('/usuarios/:id', UserController.deleteUser)
 router.put('/usuarios/:id', UserController.updateUser)
 
-//atualizar a data do Plantão
-//router.patch('/usuarios/:id', updateController.updateShift)
 
 export default router;

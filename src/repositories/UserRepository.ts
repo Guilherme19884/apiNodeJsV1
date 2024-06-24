@@ -16,11 +16,12 @@ export const UserRepository = AppDataSource.getRepository(User).extend({
     },
 
     async findUserAndModify(userId: number, user: Partial<User>): Promise<User> {
-        const userToUpdate = await this.findOne(userId);
-        if (!userToUpdate) throw new Error("User not found");
+        // Adicionando condição de seleção ao findOne
+        const userToUpdate = await this.findOne({ where: { id: userId } })
+        if (!userToUpdate) throw new Error("User not found")
 
-        Object.assign(userToUpdate, user);
-        return this.save(userToUpdate);
+        Object.assign(userToUpdate, user)
+        return this.save(userToUpdate)
     }
 
     // Outros métodos específicos podem ser adicionados aqui
