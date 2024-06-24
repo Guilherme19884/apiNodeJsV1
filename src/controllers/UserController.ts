@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { createUserService, deleteUserService, getOneUserService, getUsersService } from '../service/UserService';
+import { createUserService, deleteUserService, getOneUserService, getUsersService, updateUserService } from '../service/UserService';
 import * as HttpResponse from '../utils/http-helper';
 
 

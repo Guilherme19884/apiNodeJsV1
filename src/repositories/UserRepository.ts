@@ -13,12 +13,20 @@ export const UserRepository = AppDataSource.getRepository(User).extend({
 
     async deleteUser(userId: number): Promise<void>{
         return this.delete(userId) 
-    }
+    },
 
+    async findUserAndModify(userId: number, user: Partial<User>): Promise<User> {
+        const userToUpdate = await this.findOne(userId);
+        if (!userToUpdate) throw new Error("User not found");
+
+        Object.assign(userToUpdate, user);
+        return this.save(userToUpdate);
+    }
 
     // Outros métodos específicos podem ser adicionados aqui
 }) as Repository<User> & {
     insertUser(user: User): Promise<User>;
     findAllUsers(): Promise<User[]>;   
     deleteUser(userId: number): Promise <void>
+    findUserAndModify(userId: number, user: Partial<User>): Promise<User>
 }

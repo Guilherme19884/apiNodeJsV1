@@ -3,6 +3,7 @@ import { User } from '../entities/User';
 import * as HttpResponse from '../utils/http-helper';
 import { HttpResponse as IHttpResponse } from '../entities/http-response-entity';
 import { UserRepository } from '../repositories/UserRepository';
+import { TreeRepositoryUtils } from 'typeorm';
 
 export const createUserService = async (user: Partial<User>): Promise<IHttpResponse> => {
     let response = null;
@@ -61,4 +62,14 @@ export const deleteUserService = async (id: number): Promise<any> => {
         console.error("Error fetiching user:", error)
         return HttpResponse.serverError()
     }
+}
+
+export const updateUserService = async (id: number, user: Partial<User>): Promise <any> => {
+    const data = await UserRepository.findUserAndModify(id, user)
+
+    if(!data) {
+        return HttpResponse.badRequest()
+    }
+
+    const response = await HttpResponse.ok(User)
 }
