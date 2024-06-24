@@ -39,3 +39,11 @@ export const deleteUser = async(request: Request, response: Response): Promise<R
     return response.json({Usuario :"Deletado com sucesso"})
     console.log('Usuário deletado com sucesso!')
 }
+
+//alterar usuário por Id
+export const updateUser = async (request: Request, response: Response)=> {
+    const id = parseInt(request.params.id)
+    const bodyValue = request.body
+    const httpResponse = await updateUserService(id, bodyValue)
+    response.status(httpResponse.statusCode).json(httpResponse.body)
+}
