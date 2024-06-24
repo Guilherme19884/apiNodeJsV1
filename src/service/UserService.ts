@@ -13,7 +13,8 @@ export const createUserService = async (user: Partial<User>): Promise<IHttpRespo
         newUser.id = user.id;
         newUser.name = user.name;
         newUser.role = user.role;
-        newUser.shiftDate = user.shiftDate ? new Date(user.shiftDate) : null;
+        newUser.shiftDate = user.shiftDate ? new Date(user.shiftDate) : null
+        newUser.password = user.password
 
         await UserRepository.insertUser(newUser);
         response = await HttpResponse.created();
