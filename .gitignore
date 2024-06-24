@@ -1,3 +1,4 @@
 node_modules/
 data-source.ts/
-ormconfig.json
+ormconfig.json/
+jwtConfig.ts

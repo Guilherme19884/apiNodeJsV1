@@ -1,6 +1,9 @@
-import { Request, Response } from 'express';
-import { createUserService, deleteUserService, getOneUserService, getUsersService, updateUserService } from '../service/UserService';
-import * as HttpResponse from '../utils/http-helper';
+import { Request, Response } from 'express'
+import { createUserService, deleteUserService, getOneUserService, getUsersService, updateUserService } from '../service/UserService'
+import * as HttpResponse from '../utils/http-helper'
+import { UserRepository } from '../repositories/UserRepository'
+import bcrypt from 'bcrypt'
+import jwtConfig from '../utils/jwtConfig'
 
 
 //Criar usuários
@@ -46,4 +49,28 @@ export const updateUser = async (request: Request, response: Response)=> {
     const bodyValue = request.body
     const httpResponse = await updateUserService(id, bodyValue)
     response.status(httpResponse.statusCode).json(httpResponse.body)
+}
+
+//Login
+export const login = async(request: Request, response: Response) => {
+    const { name, password } = request.body
+
+    try {
+        const user = await UserRepository.findOne({ where: { name } })
+        if (!user) {
+          return response.status(400).json({ message: 'User not found' })
+        }
+        const isPasswordValid = await bcrypt.compare(password, user.password)
+        if (!isPasswordValid) {
+          return response.status(400).json({ message: 'Invalid password' })
+        }
+        const token = jwt.sign({ id: user.id, name: user.name }, jwtConfig.secret, {
+          expiresIn: jwtConfig.expiresIn,
+        })
+    
+        return response.status(200).json({ token })
+      } catch (error) {
+        console.error('Error during login:', error)
+        return response.status(500).json({ message: 'Server error' })
+      }
 }
