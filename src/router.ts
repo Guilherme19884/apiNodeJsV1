@@ -13,5 +13,7 @@ router.get('/usuarios/:id', UserController.getOneUser)
 router.delete('/usuarios/:id', UserController.deleteUser)
 router.put('/usuarios/:id', UserController.updateUser)
 
+//Rota de login
+router.post('/login', UserController.login)
 
 export default router;
