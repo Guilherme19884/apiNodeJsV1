@@ -4,6 +4,7 @@ import * as HttpResponse from '../utils/http-helper'
 import { UserRepository } from '../repositories/UserRepository'
 import bcrypt from 'bcrypt'
 import jwtConfig from '../utils/jwtConfig'
+import jwt from 'jsonwebtoken'
 
 
 //Criar usuários

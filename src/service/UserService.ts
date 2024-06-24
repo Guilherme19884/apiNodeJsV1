@@ -5,6 +5,8 @@ import { HttpResponse as IHttpResponse } from '../entities/http-response-entity'
 import { UserRepository } from '../repositories/UserRepository';
 import { TreeRepositoryUtils } from 'typeorm';
 
+
+// Criar usuário
 export const createUserService = async (user: Partial<User>): Promise<IHttpResponse> => {
     let response = null;
 
@@ -23,7 +25,7 @@ export const createUserService = async (user: Partial<User>): Promise<IHttpRespo
         response = await HttpResponse.badRequest();
     }
     return response;
-};
+}
 
 export const getUsersService = async (): Promise<IHttpResponse> => {
     const data = await UserRepository.findAllUsers();
