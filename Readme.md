@@ -27,3 +27,15 @@ Ter um filtro também que irá buscar o plantonista pelo nº do RE. Assim o trab
 7 – Tela de login Usar as validações corretas <br> 
 8 - Validar os campos de input dos filtros <br>
 
+
+## Ambiente para rodar o backend
+
+1- Use o editor VSCode ou Visual Estudio 
+2- Certifique-se que tenha o nodeJs instalado na sua máquina
+3- entre no cmd digite node -v (para verfiar o node)
+4- dentro do cmd dê outro comanado: code -v (verificar o vsCode instalado)
+5- Faça um clone do projeto 
+6- dentro do Vs code e no projeto aperte crtl + j 
+7- digite: npm install para rodar as configurações 
+8- lembre-se de ajustar para a senha do seu banco de dados 
+9- instale a extensão Thunder Client para testar as rotas caso você não tenha o Postman ou o Insomnia
