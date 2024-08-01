@@ -10,18 +10,18 @@ Ter um filtro também que irá buscar o plantonista pelo nº do RE. Assim o trab
 ## Requisitos não funcionais:
 
 1 – Entidade usuários <br>
-2 – Entidade Plantão 
-3 – Criar api Rest full 
-	Criar uma rota mudança de senha (somente pessoas com autorização especial)
-4 – Tecnologias: Back - End
-•	NodeJs
-•	Typescript
-•	Express
-•	TypeOrm 
-•	MySql
-•	JWT
-5 – Tecnologias: Front – End ( Decidir)
-6 – Criar filtros 
-7 – Tela de login Usar as validações corretas
-8 - Validar os campos de input dos filtros
+2 – Entidade Plantão <br>
+3 – Criar api Rest full <br>
+	<br> Criar uma rota mudança de senha (somente pessoas com autorização especial)<br>
+4 – Tecnologias: Back - End <br>
+•	NodeJs <br>
+•	Typescript <br>
+•	Express <br>
+•	TypeOrm <br>
+•	MySql <br>
+•	JWT <br>
+5 – Tecnologias: Front – End ( Decidir) <br>
+6 – Criar filtros <br> 
+7 – Tela de login Usar as validações corretas <br> 
+8 - Validar os campos de input dos filtros <br>
 
