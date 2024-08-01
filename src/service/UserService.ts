@@ -28,14 +28,19 @@ export const createUserService = async (user: Partial<User>): Promise<IHttpRespo
 }
 
 export const getUsersService = async (): Promise<IHttpResponse> => {
-    const data = await UserRepository.findAllUsers();
-
-    if (data.length > 0) {
-        return HttpResponse.ok(data);
-    } else {
-        return HttpResponse.noContent();
-    }
-};
+    try {
+        const data = await UserRepository.findAllUsers();
+    
+        if (!data || data.length === 0) {
+          return HttpResponse.noContent();
+        } else {
+          return HttpResponse.ok(data);
+        }
+      } catch (error) {
+        console.error('Erro ao buscar usuários:', error);
+        return HttpResponse.serverError();
+      }
+}
 
 export const getOneUserService = async (id: number): Promise<any> => {
     try {

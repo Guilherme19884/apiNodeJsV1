@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import { createUserService, deleteUserService, getOneUserService, getUsersService, updateUserService } from '../service/UserService'
 import * as HttpResponse from '../utils/http-helper'
 import { UserRepository } from '../repositories/UserRepository'
-import bcrypt from 'bcrypt'
+import { bcrypt } from 'bcrypt'
 import jwtConfig from '../utils/jwtConfig'
 import jwt from 'jsonwebtoken'
 

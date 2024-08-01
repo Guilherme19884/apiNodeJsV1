@@ -22,3 +22,4 @@ export class User {
     async hashPassword() {
         this.password = await bcrypt.hash(this.password, 10)
 }
+}

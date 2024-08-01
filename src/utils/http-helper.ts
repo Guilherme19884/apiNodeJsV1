@@ -28,6 +28,13 @@ export const badRequest = async(): Promise< HttpResponse > => {
     }
 }
 
+export const unauthorized = async (): Promise<HttpResponse> => {
+    return {
+        statusCode: 401,
+        body: null
+    }
+}
+
 export const serverError = async(): Promise< HttpResponse > => {
     return {
         statusCode: 500,
