@@ -9,7 +9,7 @@ Ter um filtro também que irá buscar o plantonista pelo nº do RE. Assim o trab
 
 ## Requisitos não funcionais:
 
-1 – Entidade usuários 
+1 – Entidade usuários <br>
 2 – Entidade Plantão 
 3 – Criar api Rest full 
 	Criar uma rota mudança de senha (somente pessoas com autorização especial)
