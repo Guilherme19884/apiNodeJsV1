@@ -12,7 +12,7 @@ Ter um filtro também que irá buscar o plantonista pelo nº do RE. Assim o trab
 1 – Entidade usuários <br>
 2 – Entidade Plantão <br>
 3 – Criar api Rest full <br>
-	<br> Criar uma rota mudança de senha (somente pessoas com autorização especial)<br>
+	Criar uma rota mudança de senha (somente pessoas com autorização especial)<br>
 4 – Tecnologias: Back - End <br>
 •	NodeJs <br>
 •	Typescript <br>
